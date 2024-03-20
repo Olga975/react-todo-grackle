@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function AddTodoForm(props) {
     function handleAddTodo(event) {
         event.preventDefault();
@@ -10,6 +11,13 @@ function AddTodoForm(props) {
         <form onSubmit={handleAddTodo}>
             <label htmlFor="todoTitle">Title</label>
             <input type="text" id="todoTitle" name="title" />
+=======
+function AddTodoForm() {
+    return (
+        <form>
+            <label htmlFor="todoTitle">Title</label>
+            <input type="text" id="todoTitle" />
+>>>>>>> 631dd58d07eca280419a094be11b2a03780edaa4
             <button>Add</button>
         </form>
     );
