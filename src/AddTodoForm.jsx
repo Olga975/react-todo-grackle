@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function AddTodoForm(props) {
+function AddTodoForm({ onAddTodo }) {
 
     const [todoTitle, setTodoTitle] = useState("");
 
-    function handleTitleChange (event) {
+    function handleTitleChange(event) {
         const newTodoTitle = event.target.value;
         setTodoTitle(newTodoTitle);
     }
@@ -13,21 +13,22 @@ function AddTodoForm(props) {
         event.preventDefault();
         const newTodo = {
             title: todoTitle,
-            id: Date.now() 
+            id: Date.now()
         };
-        props.onAddTodo(newTodo);
+        onAddTodo(newTodo);
         console.log(todoTitle);
         setTodoTitle("");
     }
+
     return (
         <form onSubmit={handleAddTodo}>
             <label htmlFor="todoTitle">Title</label>
-            <input 
-                type="text" 
-                id="todoTitle" 
+            <input
+                type="text"
+                id="todoTitle"
                 name="title"
                 value={todoTitle}
-                onChange={handleTitleChange} 
+                onChange={handleTitleChange}
             />
             <button>Add</button>
         </form>
@@ -35,4 +36,3 @@ function AddTodoForm(props) {
 }
 
 export default AddTodoForm;
-
