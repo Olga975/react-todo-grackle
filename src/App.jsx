@@ -63,7 +63,6 @@ function App() {
         }
       );
       if (!response.ok) {
-        const message = `Error has occurred: ${response.status}`
         throw new Error(`Error: ${response.status}`)
       }
 
@@ -102,14 +101,9 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [fetchData])
 
-  useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList))
-    }
-  }, [todoList, isLoading])
 
   const addTodo = async (todo) => {
     try {
